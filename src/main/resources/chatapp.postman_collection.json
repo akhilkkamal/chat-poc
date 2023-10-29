@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "66f7394c-c438-43f2-b593-9efa438a917b",
+		"name": "chatapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2794994"
+	},
+	"item": [
+		{
+			"name": "Akhil-stream",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Abhi-stream",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Abhi-emit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\":\"message\",\"data\":{\"from\":\"abhijith\",\"to\":\"akhil\",\"message\":\"Hi Akhil\",\"roomId\":\"abhijith:akhil\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/chat/emit"
+			},
+			"response": []
+		},
+		{
+			"name": "Akhil-emit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"type\":\"message\",\"data\":{\"from\":\"akhil\",\"message\":\"Hi Akhil\",\"roomId\":\"abhijith:akhil\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/chat/emit"
+			},
+			"response": []
+		},
+		{
+			"name": "chat-history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/rooms/messages/abhijith:akhil?offset=0&size=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rooms",
+						"messages",
+						"abhijith:akhil"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Akhil-chatrooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/rooms/user/akhil"
+			},
+			"response": []
+		},
+		{
+			"name": "Abhi-chatrooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/rooms/user/abhijith"
+			},
+			"response": []
+		}
+	]
+}
